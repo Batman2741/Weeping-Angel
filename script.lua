@@ -20,6 +20,9 @@ if seen then
   events.MOUSE_MOVE:register(function (x,y)
     return true
   end)
+  events.MOUSE_PRESS:register(function (x,y)
+    return true
+  end)
   forward = keybinds:newKeybind("Forward","key.keyboard.w")
   back = keybinds:newKeybind("Forward","key.keyboard.s")
   left = keybinds:newKeybind("Forward","key.keyboard.a")
