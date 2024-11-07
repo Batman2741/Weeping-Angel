@@ -62,13 +62,15 @@ function tick()
     if beingWatched then
         print("Player is being watched!")
         -- watched
-		 events.MOUSE_MOVE:register(function (x,y)
+  events.MOUSE_MOVE:register(function (x,y)
     return true
   end)
   forward = keybinds:newKeybind("Forward","key.keyboard.w")
   back = keybinds:newKeybind("Forward","key.keyboard.s")
   left = keybinds:newKeybind("Forward","key.keyboard.a")
   right = keybinds:newKeybind("Forward","key.keyboard.d")
+  jump = keybinds:newKeybind("Forward","key.keyboard.space")
+  crouch = keybinds:newKeybind("Forward","key.keyboard.left.shift")
   forward.press = function ()
     return true
   end
@@ -79,6 +81,12 @@ function tick()
     return true
   end
   right.press = function ()
+    return true
+  end
+  jump.press = function ()
+    return true
+  end
+  crouch.press = function ()
     return true
   end
 end
