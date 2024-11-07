@@ -92,7 +92,7 @@ function tick()
 end
     else
          print("Player is not being watched.")
-    -- Add code to handle the player not being watched
+    -- code to handle the player not being watched
     events.MOUSE_MOVE:register(function (x, y)
         return false
     end)
