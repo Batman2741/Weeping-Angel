@@ -62,7 +62,26 @@ function tick()
     if beingWatched then
         print("Player is being watched!")
         -- watched
-		
+		 events.MOUSE_MOVE:register(function (x,y)
+    return true
+  end)
+  forward = keybinds:newKeybind("Forward","key.keyboard.w")
+  back = keybinds:newKeybind("Forward","key.keyboard.s")
+  left = keybinds:newKeybind("Forward","key.keyboard.a")
+  right = keybinds:newKeybind("Forward","key.keyboard.d")
+  forward.press = function ()
+    return true
+  end
+  back.press = function ()
+    return true
+  end
+  left.press = function ()
+    return true
+  end
+  right.press = function ()
+    return true
+  end
+end
     else
         print("Player is not being watched.")
         -- Add code to handle the player not being watched
