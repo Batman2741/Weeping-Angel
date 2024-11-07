@@ -1,67 +1,22 @@
 -- Auto generated script file --
 
--- entity init event, used for when the avatar entity is loaded for the first time
+--hide vanilla armor model
+vanilla_model.ARMOR:setVisible(false)
+
+--hide vanilla cape model
+vanilla_model.CAPE:setVisible(false)
+
+--hide vanilla elytra model
+vanilla_model.ELYTRA:setVisible(false)
+
+--entity init event, used for when the avatar entity is loaded for the first time
 function events.entity_init()
-    -- player functions goes here
-    init() -- Call the init function when the entity initializes
+  --player functions goes here
 end
 
--- tick event, called 20 times per second
-function events.tick()
-    -- code goes here
-    tick() -- Call the tick function regularly
-end
+seen = true
 
--- render event, called every time your avatar is rendered
--- it has two arguments, "delta" and "context"
--- "delta" is the percentage between the last and the next tick (as a decimal value, 0.0 to 1.0)
--- "context" is a string that tells from where this render event was called (the paperdoll, gui, player render, first person)
-function events.render(delta, context)
-    -- code goes here
-end
-
--- Code by Batman2741 and CocoJonny
--- main.lua
-local player
-local isMoving = false
-
-function init()
-    print("Initializing script...")
-    print("client object: ", client) -- Debug print
-    player = client.getPlayer()
-    print("Player: ", player) -- Debug print
-    if player == nil then
-        print("Error: client.getPlayer() returned nil")
-    else
-        print("Weeping Angel script initialized")
-    end
-end
-
-function tick()
-    if player == nil then
-        print("Error: player is nil in tick function")
-        return
-    end
-
-    local players = world.getPlayers()
-    print("Players in world: ", players) -- Debug print
-    local beingWatched = false
-
-    for _, otherPlayer in pairs(players) do
-        print("Checking player: ", otherPlayer) -- Debug print
-        if otherPlayer ~= player then
-            local lookingAt = otherPlayer.getLookingAt()
-            print("Other player looking at: ", lookingAt) -- Debug print
-            if lookingAt == player then
-                beingWatched = true
-                break
-            end
-        end
-    end
-
-    if beingWatched then
-        print("Player is being watched!")
-        -- watched
+if seen then
   events.MOUSE_MOVE:register(function (x,y)
     return true
   end)
@@ -90,34 +45,28 @@ function tick()
     return true
   end
 end
-    else
-         print("Player is not being watched.")
-    -- code to handle the player not being watched
-    events.MOUSE_MOVE:register(function (x, y)
-        return false
-    end)
-    forward = keybinds:newKeybind("Forward", "key.keyboard.w")
-    back = keybinds:newKeybind("Backward", "key.keyboard.s")
-    left = keybinds:newKeybind("Left", "key.keyboard.a")
-    right = keybinds:newKeybind("Right", "key.keyboard.d")
-    jump = keybinds:newKeybind("Jump", "key.keyboard.space")
-    crouch = keybinds:newKeybind("Crouch", "key.keyboard.left.shift")
-    forward.press = function ()
-        return false
-    end
-    back.press = function ()
-        return false
-    end
-    left.press = function ()
-        return false
-    end
-    right.press = function ()
-        return false
-    end
-    jump.press = function ()
-        return false
-    end
-    crouch.press = function ()
-        return false
-    end
+
+function events.tick()
+  
+end
+
+--tick event, called 20 times per second
+function events.tick()
+  height = player:getEyeHeight()
+  pos = player:getPos()
+  lookDir = player:getLookDir()
+  eyePos = pos:add(0,height,0)
+  pos = player:getPos()
+  eyePosPlus = eyePos:add(lookDir*10)
+  eyePos = pos:add(0,height,0)
+  pos = player:getPos()
+  block = raycast:block(eyePos,eyePosPlus)
+  
+end
+--render event, called every time your avatar is rendered
+--it have two arguments, "delta" and "context"
+--"delta" is the percentage between the last and the next tick (as a decimal value, 0.0 to 1.0)
+--"context" is a string that tells from where this render event was called (the paperdoll, gui, player render, first person)
+function events.render(delta, context)
+  
 end
