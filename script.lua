@@ -37,7 +37,7 @@ function init()
     end
 end
 
-function tick()
+function events.tick()
     if player == nil then
         print("Error: player is nil in tick function")
         return
