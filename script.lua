@@ -1,4 +1,4 @@
--- Auto generated script file --
+-- Coded By Batman2741 and CocoJonny --
 
 --hide vanilla armor model
 vanilla_model.ARMOR:setVisible(false)
