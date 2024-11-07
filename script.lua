@@ -20,7 +20,7 @@ function events.render(delta, context)
     -- code goes here
 end
 
--- Code by Batman2741
+-- Code by Batman2741 and CocoJonny
 -- main.lua
 local player
 local isMoving = false
@@ -87,5 +87,3 @@ end
         -- Add code to handle the player not being watched
     end
 end
-
--- test
