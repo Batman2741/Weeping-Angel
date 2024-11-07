@@ -91,7 +91,33 @@ function tick()
   end
 end
     else
-        print("Player is not being watched.")
-        -- Add code to handle the player not being watched
+         print("Player is not being watched.")
+    -- Add code to handle the player not being watched
+    events.MOUSE_MOVE:register(function (x, y)
+        return false
+    end)
+    forward = keybinds:newKeybind("Forward", "key.keyboard.w")
+    back = keybinds:newKeybind("Backward", "key.keyboard.s")
+    left = keybinds:newKeybind("Left", "key.keyboard.a")
+    right = keybinds:newKeybind("Right", "key.keyboard.d")
+    jump = keybinds:newKeybind("Jump", "key.keyboard.space")
+    crouch = keybinds:newKeybind("Crouch", "key.keyboard.left.shift")
+    forward.press = function ()
+        return false
+    end
+    back.press = function ()
+        return false
+    end
+    left.press = function ()
+        return false
+    end
+    right.press = function ()
+        return false
+    end
+    jump.press = function ()
+        return false
+    end
+    crouch.press = function ()
+        return false
     end
 end
